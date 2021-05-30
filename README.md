@@ -40,6 +40,4 @@ To run unit tests:
 npm test
 ```
 
-## Credits
 
-Made with [createapp.dev](https://createapp.dev/)
