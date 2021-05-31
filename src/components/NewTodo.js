@@ -95,6 +95,9 @@ const NewTodo = ({ setTodos, todos, edit, setEdit }) => {
     }
     handleReset(e);
   };
+  const changePercentInput = (e) => {
+    setSlider(e.target.value);
+  };
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <Grid
@@ -105,18 +108,22 @@ const NewTodo = ({ setTodos, todos, edit, setEdit }) => {
         alignItems="center"
         className="newTodo"
       >
-        <Grid item md={2}>
+        <Grid item xl={3}>
           <TextField
-            id="outlined-basic newtodo-textinput"
+            id="outlined-basic"
             label="New Todo Name"
             name="newtodo-textinput"
             ref={textRef}
             onChange={handleTextInput}
             value={textInput}
             variant="outlined"
+            className="newtodo-textinput"
           />
         </Grid>
-        <Grid item md={2}>
+        <Grid item xl={3} className="diff" style={{ display: "none" }}>
+          {diff} day{diff > 1 ? "s" : null} left
+        </Grid>
+        <Grid item xl={3}>
           <TextField
             id="date"
             label="Date for to do"
@@ -129,16 +136,11 @@ const NewTodo = ({ setTodos, todos, edit, setEdit }) => {
             }}
           />
         </Grid>
-        <Grid item md={2}>
-          {diff}{" "}
-          <div className="diff" style={{ display: "none" }}>
-            day{diff > 1 ? "s" : null} left
-          </div>
-        </Grid>
-        <Grid item md={2}>
+
+        <Grid item xl={3} className="percent">
           % {slider ? slider : 0}
           <Slider
-            defaultvalue={3}
+            defaultValue={3}
             onChange={changePercent}
             aria-labelledby="continuous-slider"
             ref={inputEl}
@@ -146,34 +148,48 @@ const NewTodo = ({ setTodos, todos, edit, setEdit }) => {
             max={100}
             value={slider}
           />
+          <TextField
+            id="outlined-basic"
+            label={slider + "%"}
+            name="newtodo-textinput"
+            onChange={changePercentInput}
+            value={slider}
+            variant="outlined"
+            className="newtodo-textinput"
+          />
         </Grid>
-        <Grid item md={3}>
+
+        <Grid item xl={3} style={{ textAlign: "center" }}>
           Status
           <Checkbox
             color="primary"
             inputProps={{ "aria-label": "secondary checkbox" }}
             checked={bilmem}
             onChange={handleCheck}
+            style={{ width: "90%" }}
           />
         </Grid>
-        <Button
-          onClick={handleReset}
-          color="secondary"
-          variant="contained"
-          startIcon={<DeleteIcon />}
-        >
-          Reset Form
-        </Button>
-        <Button
-          type="submit"
-          disabled={textInput.length > 0 ? false : true}
-          variant="contained"
-          color="primary"
-          size="small"
-          startIcon={<SaveIcon />}
-        >
-          Add list
-        </Button>
+
+        <div className="form-buttons">
+          <Button
+            type="submit"
+            disabled={textInput.length > 0 ? false : true}
+            variant="contained"
+            color="primary"
+            size="small"
+            startIcon={<SaveIcon />}
+          >
+            Add list
+          </Button>
+          <Button
+            onClick={handleReset}
+            color="secondary"
+            variant="contained"
+            startIcon={<DeleteIcon />}
+          >
+            Reset Form
+          </Button>
+        </div>
       </Grid>
     </form>
   );

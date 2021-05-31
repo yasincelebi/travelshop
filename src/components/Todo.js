@@ -38,7 +38,7 @@ const Todo = ({ todo, setEdit, edit, setTodos }) => {
     <div>
       {todoArray.map((e, i) => (
         <div key={i}>
-          <Grid container spacing={1} direction="row">
+          <Grid container spacing={1} direction="row" className="deneme">
             <Grid item xs={5}>
               <div
                 className="asd"
@@ -49,15 +49,16 @@ const Todo = ({ todo, setEdit, edit, setTodos }) => {
                 {e.name}
               </div>
             </Grid>
-            <Grid item xs={7}>
+            <Grid item md={7} className="edits">
               <Grid
                 container
+                className="todo-items"
                 spacing={1}
                 direction="row"
                 justify="center"
                 alignItems="center"
               >
-                <Grid item xs={2}>
+                <Grid item xl={2}>
                   <Checkbox
                     onChange={() => handleComplete(e.id)}
                     color="primary"
@@ -83,7 +84,7 @@ const Todo = ({ todo, setEdit, edit, setTodos }) => {
                 <Grid item xs={2}>
                   <Confirm agree={() => handleDelete(e.id)} />
                 </Grid>
-                <LinearProgress variant="determinate" value={e.progress} />
+                <LinearProgress variant="determinate" value={3} />
               </Grid>
             </Grid>
           </Grid>

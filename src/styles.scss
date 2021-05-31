@@ -1,1 +1,81 @@
 // stil
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+* {
+  font-family: Roboto, sans-serif;
+}
+h2 {
+  font-weight: 400 !important;
+}
+.asd {
+  font-weight: 500 !important;
+  font-size: 1.3rem;
+}
+.status {
+  font-size: 1.2rem;
+}
+.newTodo {
+  width: 100%;
+  .form-buttons {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+}
+@media screen and(max-width:720px) {
+  .edits {
+    width: 100%;
+  }
+  .MuiGrid-container {
+    justify-content: center;
+  }
+  .asd {
+    width: 100%;
+    text-align: center;
+  }
+  .deneme {
+    .MuiGrid-grid-xs-5 {
+      width: 50% !important;
+      text-align: right;
+    }
+  }
+  .newTodo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .form-buttons {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    * {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow-wrap: normal;
+    }
+    .percent {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      span {
+        display: flex;
+        flex-wrap: wrap !important;
+        justify-content: space-around;
+      }
+    }
+  }
+}
+@media screen and(max-width:410px) {
+  .todo-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
