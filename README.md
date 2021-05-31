@@ -1,6 +1,6 @@
 # travelshop
 
-Empty project.
+
 
 ## Building and running on localhost
 
@@ -40,6 +40,4 @@ To run unit tests:
 npm test
 ```
 
-## Credits
 
-Made with [createapp.dev](https://createapp.dev/)
